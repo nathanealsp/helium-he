@@ -13,11 +13,11 @@ class LandingPage extends Component {
 
     console.log('cityBikes.networks', cityBikes.networks);
     console.log('cityBikes', cityBikes.networks);
+    const bikesUSA = cityBikes.networks.filter(item => item.location.country === 'US').sort();
 
     this.setState({
-      cityBikes: cityBikes.networks,
+      cityBikes: bikesUSA,
     });
-    console.table(cityBikes.networks.filter(item => item.location.city === 'Boston, MA'));
   }
 
   handleSearch = e => {
@@ -33,8 +33,10 @@ class LandingPage extends Component {
     //   item => item.location.city === 'Boston, MA'
     // );
     return (
-      <div>
-        <h1>CITY BIKES</h1>
+      <div className="app">
+        <h1>
+          CITY BIKES <sup>USA</sup>
+        </h1>
         <p>The world's biggest bike depot</p>
         <input
           type="search"

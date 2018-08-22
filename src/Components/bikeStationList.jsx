@@ -1,52 +1,51 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import BikeStation from './bikeStation';
 
 class BikeStationList extends Component {
   state = {
+    loading: true,
     bikeStations: [],
   };
 
   async componentDidMount() {
-    const res = await fetch('https://api.citybik.es/v2/networks/hubway');
-    const cityBikes = await res.json();
-
-    console.log('cityBikes.networks', cityBikes.network.name);
-    console.log('cityBikes', cityBikes.network.stations);
-
-    this.setState({
-      bikeStations: cityBikes.network.stations,
-    });
+    try {
+      const res = await fetch('https://api.citybik.es/v2/networks/hubway');
+      console.log(res);
+      const cityBikes = await res.json();
+      setTimeout(() => {
+        this.setState({
+          bikeStations: cityBikes.network.stations,
+          loading: false,
+        });
+      }, 6000);
+    } catch (error) {}
   }
 
   render() {
-    const { bikeStations } = this.state;
-    console.log('cityBikes Logged', bikeStations);
+    const { bikeStations, loading } = this.state;
+    console.log(bikeStations);
 
     return (
-      <div>
-        <h1>HUBWAY</h1>
-        <div className="listStation">
-          {bikeStations.map(station => (
-            // <div className="stationed">
-            //   <div className="stationName">{station.name}</div>
-            //   <hr />
-            //   <div className="bikeNumber">
-            //     <span>
-            //       <div className="stationNumber">{station.free_bikes}</div>
-            //       <div className="stationTitle">FREE BIKES</div>
-            //     </span>
-            //     <span>
-            //       <div className="stationNumber">{station.empty_slots}</div>
-            //       <div className="stationTitle">EMPTY SLOTS</div>
-            //     </span>
-            //   </div>
-            //   <hr />
-            //   <div className="stationTimeStamp">{station.timestamp}</div>
-            // </div>
-            <BikeStation station={station} />
-          ))}
-        </div>
-      </div>
+      <Fragment>
+        {loading ? (
+          <div className="spinner">
+            <h1>
+              <i className="fa fa-bicycle fa-pulse fa-3x fa-fw" />
+            </h1>
+            <p className="">Loading Please wait...</p>
+          </div>
+        ) : (
+          <div>
+            <h1>
+              Hubway
+              <i className="fas fa-bicycle" />
+            </h1>
+            <div className="listStation">
+              {bikeStations.map((station, idx) => <BikeStation key={idx} station={station} />)}
+            </div>
+          </div>
+        )}
+      </Fragment>
     );
   }
 }

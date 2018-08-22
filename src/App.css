@@ -1,17 +1,41 @@
 :root {
   --grey: #aaaaac;
+  --yellow: #ffc600;
+  --black: #272727;
 }
 
-.App {
+body {
+  box-sizing: border-box;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.app {
   text-align: center;
+}
+
+.app h1 {
+  color: var(--yellow);
+}
+
+.app p {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* MY STYLES */
 
+/* FRONT PAGE */
+
 input[type="search"] {
   display: grid;
   margin: 0 auto;
-  width: 70%;
+  width: 50%;
   height: calc(2.25rem + 2px);
   padding: .375rem .75rem;
   font-size: 1rem;
@@ -25,15 +49,24 @@ input[type="search"] {
 }
 
 .list {
+  margin: 20px auto;
+  width: 90%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  background: grey;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 10px;
 }
 
 .listItem {
-  background: #ecd018;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+  font-size: 15px;
   padding: 5px;
+  font-weight: bold;
+  background-color: var(--yellow);
+  ;
 }
 
 .listStation {
@@ -92,4 +125,19 @@ hr {
 
 img {
   width: 20px;
+}
+
+.spinner {
+  display: grid;
+  place-items: center;
+}
+
+.fa-sync {
+  font-size: 12px;
+}
+
+sup {
+  font-size: 10px;
+  font-weight: bold;
+  color: black;
 }
