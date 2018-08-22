@@ -4,17 +4,21 @@ import BikeStation from './bikeStation';
 class BikeStationList extends Component {
   state = {
     loading: true,
+    locationTag: null,
     bikeStations: [],
   };
 
   async componentDidMount() {
     try {
-      const res = await fetch('https://api.citybik.es/v2/networks/hubway');
+      const res = await fetch(`https://api.citybik.es/v2/networks/${this.props.match.params.Id}`);
+      // const res = await fetch('https://api.citybik.es/v2/networks/hubway');
       console.log(res);
       const cityBikes = await res.json();
       setTimeout(() => {
+        console.log(cityBikes.network.name);
         this.setState({
           bikeStations: cityBikes.network.stations,
+          locationTag: cityBikes.network.name,
           loading: false,
         });
       }, 6000);
@@ -37,7 +41,7 @@ class BikeStationList extends Component {
         ) : (
           <div>
             <h1>
-              Hubway
+              {this.state.locationTag}
               <i className="fas fa-bicycle" />
             </h1>
             <div className="listStation">

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import City from './City';
 
 class LandingPage extends Component {
   state = {
@@ -27,16 +28,10 @@ class LandingPage extends Component {
   };
 
   render() {
-    console.log('searchedLocation', this.state.searchedLocation);
+    // console.log('searchedLocation', this.state.searchedLocation);
     console.log('cityBikes Logged', this.state.cityBikes);
-    // const newResults = this.state.cityBikes.networks.filter(
-    //   item => item.location.city === 'Boston, MA'
-    // );
     return (
       <div className="app">
-        <h1>
-          CITY BIKES <sup>USA</sup>
-        </h1>
         <p>The world's biggest bike depot</p>
         <input
           type="search"
@@ -51,9 +46,10 @@ class LandingPage extends Component {
           ) : (
             <div className="list">
               {this.state.cityBikes.map((item, idx) => (
-                <div className="listItem" key={idx}>
-                  {item.location.city}
-                </div>
+                // <div className="listItem" key={idx}>
+                //   {item.location.city}
+                // </div>
+                <City item={item} key={idx} />
               ))}
             </div>
           )}

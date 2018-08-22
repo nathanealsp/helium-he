@@ -19,8 +19,9 @@ body {
   text-align: center;
 }
 
-.app h1 {
+.main h1 {
   color: var(--yellow);
+  text-align: center;
 }
 
 .app p {
