@@ -1,28 +1,95 @@
+:root {
+  --grey: #aaaaac;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+/* MY STYLES */
+
+input[type="search"] {
+  display: grid;
+  margin: 0 auto;
+  width: 70%;
+  height: calc(2.25rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: grey;
+  grid-gap: 10px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.listItem {
+  background: #ecd018;
+  padding: 5px;
 }
 
-.App-intro {
-  font-size: large;
+.listStation {
+  margin: 0 auto;
+  display: grid;
+  width: 60%;
+  grid-gap: 15px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.stationed {
+  display: grid;
+  /* padding: 10px; */
+  border-radius: .4em;
+  border: 1px solid #ced4da;
+}
+
+.bikeNumber {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  padding: 25px;
+}
+
+.stationName {
+  display: grid;
+  font-weight: bold;
+  padding: 9px;
+}
+
+.stationTimeStamp {
+  display: grid;
+  padding: 9px;
+  color: #495057;
+}
+
+.stationNumber {
+  font-size: 35px;
+  padding: 4px;
+  color: #495057;
+  font-weight: bold;
+}
+
+.stationTitle {
+  color: #495057;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+hr {
+  width: 100%;
+  background-color: #495057;
+  height: .012em;
+  margin: 0
+}
+
+img {
+  width: 20px;
 }
