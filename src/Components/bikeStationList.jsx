@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import BikeStation from './bikeStation';
 
 class BikeStationList extends Component {
   state = {
@@ -26,30 +27,23 @@ class BikeStationList extends Component {
         <h1>HUBWAY</h1>
         <div className="listStation">
           {bikeStations.map(station => (
-            <div className="stationed">
-              <div className="stationName">{station.name}</div>
-              <hr />
-              <div className="bikeNumber">
-                <span>
-                  <div className="stationNumber">{station.free_bikes}</div>
-                  <div className="stationTitle">FREE BIKES</div>
-                </span>
-
-                <span>
-                  <div className="stationNumber">{station.empty_slots}</div>
-                  <div className="stationTitle">EMPTY SLOTS</div>
-                </span>
-              </div>
-              <hr />
-              <div className="stationTimeStamp">
-                {station.timestamp}
-                <img
-                  src=" https://1.bp.blogspot.com/-tWxtTHsnBvQ/Wx0E35ydjVI/AAAAAAAAA6w/SxUTG14Kx8ABJkT4_7S18j4W-Sj5a50YACLcBGAs/s1600/qr.png"
-                  alt="Ticket Code"
-                  srcSet=""
-                />
-              </div>
-            </div>
+            // <div className="stationed">
+            //   <div className="stationName">{station.name}</div>
+            //   <hr />
+            //   <div className="bikeNumber">
+            //     <span>
+            //       <div className="stationNumber">{station.free_bikes}</div>
+            //       <div className="stationTitle">FREE BIKES</div>
+            //     </span>
+            //     <span>
+            //       <div className="stationNumber">{station.empty_slots}</div>
+            //       <div className="stationTitle">EMPTY SLOTS</div>
+            //     </span>
+            //   </div>
+            //   <hr />
+            //   <div className="stationTimeStamp">{station.timestamp}</div>
+            // </div>
+            <BikeStation station={station} />
           ))}
         </div>
       </div>
