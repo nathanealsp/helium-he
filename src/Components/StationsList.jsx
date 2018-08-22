@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import BikeStation from './bikeStation';
+import BikeStation from './Station';
+import Loading from './Loading';
 
-class BikeStationList extends Component {
+class StationsList extends Component {
   state = {
     loading: true,
     locationTag: null,
@@ -11,37 +12,29 @@ class BikeStationList extends Component {
   async componentDidMount() {
     try {
       const res = await fetch(`https://api.citybik.es/v2/networks/${this.props.match.params.Id}`);
-      // const res = await fetch('https://api.citybik.es/v2/networks/hubway');
-      console.log(res);
       const cityBikes = await res.json();
       setTimeout(() => {
-        console.log(cityBikes.network.name);
         this.setState({
           bikeStations: cityBikes.network.stations,
           locationTag: cityBikes.network.name,
           loading: false,
         });
       }, 6000);
-    } catch (error) {}
+    } catch (error) {
+      // to be determined
+    }
   }
 
   render() {
-    const { bikeStations, loading } = this.state;
-    console.log(bikeStations);
-
+    const { bikeStations, loading, locationTag } = this.state;
     return (
       <Fragment>
         {loading ? (
-          <div className="spinner">
-            <h1>
-              <i className="fa fa-bicycle fa-pulse fa-3x fa-fw" />
-            </h1>
-            <p className="">Loading Please wait...</p>
-          </div>
+          <Loading />
         ) : (
           <div>
             <h1>
-              {this.state.locationTag}
+              {locationTag}
               <i className="fas fa-bicycle" />
             </h1>
             <div className="listStation">
@@ -53,4 +46,4 @@ class BikeStationList extends Component {
     );
   }
 }
-export default BikeStationList;
+export default StationsList;

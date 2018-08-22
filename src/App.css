@@ -53,7 +53,7 @@ input[type="search"] {
   margin: 20px auto;
   width: 90%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 10px;
 }
 
@@ -64,17 +64,26 @@ input[type="search"] {
   border: 5px solid rgba(0, 0, 0, 0.03);
   border-radius: 3px;
   font-size: 15px;
+
   padding: 5px;
   font-weight: bold;
   background-color: var(--yellow);
-  ;
+
 }
 
 .listStation {
   margin: 0 auto;
   display: grid;
-  width: 60%;
+  width: 90%;
   grid-gap: 15px;
+  text-align: center;
+}
+
+@media (min-width: 960px) {
+  .listStation {
+    margin: 0 auto;
+    width: 60%;
+  }
 }
 
 .stationed {
