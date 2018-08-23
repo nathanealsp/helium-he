@@ -16,7 +16,7 @@ class LandingPage extends Component {
 
     this.setState({
       cityBikes: bikesUSA,
-      loading: true,
+      loading: false,
     });
   }
 
