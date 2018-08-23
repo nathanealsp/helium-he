@@ -8,9 +8,9 @@ const City = props => {
   } = props.item;
 
   return (
-    <div className="listItem">
-      <Link to={`/${id}`}>{city}</Link>
-    </div>
+    <Link to={`/${id}`} style={{ textDecoration: 'none' }}>
+      <div className="listItem">{city}</div>
+    </Link>
   );
 };
 

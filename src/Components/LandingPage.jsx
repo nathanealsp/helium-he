@@ -12,11 +12,11 @@ class LandingPage extends Component {
   async componentDidMount() {
     const res = await fetch('https://api.citybik.es/v2/networks');
     const cityBikes = await res.json();
-    const bikesUSA = cityBikes.networks.filter(item => item.location.country === 'US').sort();
+    const bikesUSA = cityBikes.networks.filter(item => item.location.country === 'US');
 
     this.setState({
       cityBikes: bikesUSA,
-      loading: false,
+      loading: true,
     });
   }
 

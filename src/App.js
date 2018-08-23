@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import LandingPage from './Components/LandingPage';
 import StationsList from './Components/StationsList';
@@ -8,7 +8,7 @@ const App = () => (
   <Router>
     <div className="main">
       <h1>
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: 'none' }}>
           CITY BIKES <sup>USA</sup>
         </Link>
       </h1>

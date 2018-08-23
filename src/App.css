@@ -2,6 +2,7 @@
   --grey: #aaaaac;
   --yellow: #ffc600;
   --black: #272727;
+  font-family: "Rubik", sans-serif;
 }
 
 body {
@@ -64,11 +65,9 @@ input[type="search"] {
   border: 5px solid rgba(0, 0, 0, 0.03);
   border-radius: 3px;
   font-size: 15px;
-
   padding: 5px;
   font-weight: bold;
   background-color: var(--yellow);
-
 }
 
 .listStation {
@@ -150,4 +149,13 @@ sup {
   font-size: 10px;
   font-weight: bold;
   color: black;
+}
+
+.spinner {
+  align-self: center;
+  justify-self: center;
+}
+
+.spinner i {
+  font-size: 100px;
 }
